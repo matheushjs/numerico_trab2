@@ -10,7 +10,7 @@ double f(double t){
  *   sequência de pontos x0, x1, x2, x3..., x_divisions.
  * A partir desses pontos, aplica-se o método Simpson 1/3.
  */
-double F(double x, int divisions){
+double integral(double x, int divisions){
 	if(divisions % 2 != 0){
 		printf("Número de divisões deve ser par.\n");
 		return 0.0;
@@ -41,10 +41,15 @@ double F(double x, int divisions){
 	return result;
 }
 
+/* Essa é a função F definida nas especificações,
+ *   a qual equivale ao valor da integral menos 0.45.
+ */
+double F(double x, int divisions){
+	return integral(x, divisions) - 0.45;
+}
 
 int main(int argc, char *argv[]){
-	printf(
-"F(1)*F(2) = %lf\nOnde F(x) = I(f)(1) - 0.45\n",
-			(F(1, 100) - 0.45) * (F(2, 100) - 0.45));
+	printf("F(1)*F(2) = %lf\nOnde F(x) = I(f)(1) - 0.45\n",
+			F(1, 100) * F(2, 100));
 	return 0;
 }
