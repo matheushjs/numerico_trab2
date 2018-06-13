@@ -43,6 +43,8 @@ double F(double x, int divisions){
 
 
 int main(int argc, char *argv[]){
-	printf("%lf\n", F(1, 100));
+	printf(
+"F(1)*F(2) = %lf\nOnde F(x) = I(f)(1) - 0.45\n",
+			(F(1, 100) - 0.45) * (F(2, 100) - 0.45));
 	return 0;
 }
