@@ -59,7 +59,7 @@ double phi(double x){
 // Epsilon definido nas expecificações
 #define EPS 1E-10
 
-/* Calcula a solução da equação dada, F(x) = 0.45, pelo método de Newton.
+/* Calcula a raíz de F(x) pelo método de Newton.
  */
 double newton(double x0){
 	double old = 1000000;
@@ -76,7 +76,8 @@ int main(int argc, char *argv[]){
 	printf("F(1)*F(2) = %lf\nOnde F(x) = I(f)(1) - 0.45\n",
 			F(1, 100) * F(2, 100));
 
-	printf("Newton: %lf\n", newton(0.5));
-	printf("Confirm: %lf\n", F(1.644854, 100));
+	double root = newton(0.5);
+	printf("\nNewton: %lf\n", root);
+	printf("Confirm: F(%lf) = %lf\n", root, F(root, 100));
 	return 0;
 }
