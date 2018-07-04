@@ -14,7 +14,7 @@ function integral = simpson(a = 0, b, n = 10000, func)
 
     % Calcula cada f(x) e realiza o somatório par e ímpar.
     for i = 2:length(x)-1
-        sumP+= f(x(i)) * (1-mod(i,2));  
+		sumP+= f(x(i)) * (1-mod(i,2));  
 		sumI+= f(x(i)) * mod(i,2); 
     end
 
